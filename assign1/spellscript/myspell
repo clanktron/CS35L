@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Set proper locale
+export LC_ALL='C'
 
 # Default variables for input
 DICTIONARY="${DICTIONARY:=./sorted.words}"
