@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# SETUP
+# set proper file encoding
+export LC_ALL=en_US.UTF-8
+## Copy immutable viminfo files to temporary directory
+cp ./vimscriptbk/* ./vimscript/
+chmod 777 ./vimscript/*
+# Download hwk html file
+curl -o ./scratchwork/exer1.html https://web.cs.ucla.edu/classes/winter23/cs35L/assign/assign1.html
+# make necessary copies
+cp ./scratchwork/exer1.html ./scratchwork/exer2.html
+cp ./scratchwork/exer1.html ./scratchwork/exer3.html 
+
+# Simulate file edits
+## Run recorded commands for lab 1.1
+vim ./scratchwork/exer1.html -i ./vimscript/lab1.vim -c "@u" -c "wq"
+## Run recorded commands for lab 1.2
+vim ./scratchwork/exer2.html -i ./vimscript/lab2.vim -c "@u" -c "wq"
+## output diff to file
+diff -u ./scratchwork/exer1.html ./scratchwork/exer2.html > ./scratchwork/exer2.diff 
+## Run recorded commands for lab 1.3
+vim ./scratchwork/exer3.html -i ./vimscript/lab3.vim -c "@u" -c "wq"
+## output diff to check changes
+diff -u ./scratchwork/exer1.html ./scratchwork/exer3.html > ./scratchwork/exer3.diff
+## create exer4.html
+cat ./scratchwork/exer2.html ./scratchwork/exer2.diff > ./scratchwork/exer4.html
+## Run recorded commands for lab 1.4
+vim ./scratchwork/exer4.html -i ./vimscript/lab4.vim -c "@u" -c "wq"
+# Check diff output
+diff -u ./scratchwork/exer1.html ./scratchwork/exer4.html > ./scratchwork/exer4.diff
+
+# Cleanup
+rm -r ./vimscript/* 
+# rm -r ./scratchwork/*

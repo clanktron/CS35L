@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Default variables for input
+DICTIONARY="${DICTIONARY:=./sorted.words}"
+
+# Filter sorted.words properly and output to new file
+tr -cs 'A-Za-z' '[\n*]' < $DICTIONARY | sort -u > ./newsorted.words
+
+# Compare stdin to newly filtered dictionary 
+tr -cs 'A-Za-z' '[\n*]' < /dev/stdin | sort -u | comm -23 - ./newsorted.words

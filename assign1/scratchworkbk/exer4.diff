@@ -1,0 +1,94 @@
+--- exer1.html	2023-01-11 21:41:37.512908000 -0800
++++ exer4.html	2023-01-12 00:12:33.481257000 -0800
+@@ -101,7 +101,7 @@
+ <section>
+ <h3>Lab 1.1: Moving around in Emacs</h3>
+ 
+-<ol>
++<oL>
+ <li>Use Emacs to edit the file <samp>exer1.html</samp>.</li>
+ <li>Move the cursor to just after the first occurrence of the word "HTML" (all upper-case).</li>
+ <li>Now move the cursor to the start of the first later occurrence of the word "scavenger".</li>
+@@ -123,7 +123,7 @@
+ <section>
+ <h3>Lab 1.2: Deleting text in Emacs</h3>
+ 
+-<ol>
++<oL>
+ <li>Use Emacs to edit the file <samp>exer2.html</samp>. The idea is to
+ delete its HTML comments; the resulting page should display the same
+ text as the original.</li>
+@@ -155,7 +155,7 @@
+ <section>
+ <h3>Lab 1.3: Inserting text in Emacs</h3>
+ 
+-<ol>
++<oL>
+ <li>Use Emacs to edit the file <samp>exer3.html</samp>.</li>
+ 
+ <li>Change the first two instances of "Assignment 1" to "Assignment 27".</li>
+@@ -190,7 +190,7 @@
+ that you should know, like copy and paste, search and replace, and undo.
+ </p>
+ 
+-<ol>
++<oL>
+ <li>Execute the command "<samp>cat exer2.html exer2.diff &gt;exer4.html</samp>"
+ to create a file <samp>exer4.html</samp> that contains a copy of <samp>exer2.html</samp> followed by a copy of <samp>exer2.diff</samp>.</li>
+ <li>Use Emacs to edit the file <samp>exer4.html</samp>.
+@@ -238,7 +238,7 @@
+ works.
+ </p>
+ 
+-<ol>
++<oL>
+ <li>
+ Where are the <samp>sh</samp>, <samp>sleep</samp>, and <samp>type</samp>
+ commands located?
+@@ -320,7 +320,7 @@
+ Do these tasks all within Emacs. Don't use a shell subcommand
+ if you can avoid it.</p>
+ 
+-<ol>
++<oL>
+ <li>Create a new directory named "<samp>junk</samp>" that's right under
+ your home directory.</li>
+ 
+@@ -510,3 +510,37 @@
+ </body>
+ </html>
+ <!-- end of HTML resource -->
++<!-- --- exer1.html	2023-01-11 21:41:37.512908000 -0800
+++++ exer2.html	2023-01-11 23:37:35.505111000 -0800
++@@ -66,7 +66,6 @@
++   Introduction to Programming in Emacs Lisp</a>, version 28.2 (2022)</li>
++ </ul>
++ 
++ 
++ <p>Instructions:
++ Do the lab part of this assignment (including all shell commands and editing)
++@@ -79,7 +78,6 @@
++ files <samp>lab2.drib</samp>, <samp>lab3.drib</samp>, etc.)
++ </p>
++ 
++ <p>
++ For the editing lab exercises,
++ use intelligent ways of answering the questions. For example, if
++@@ -459,9 +457,6 @@
++ <section>
++ <h2>Submit</h2>
++ 
++ 
++ 	  <p>Submit the following files within a compressed <a href='https://en.wikipedia.org/wiki/Tar_(computing)'>tarball</a> named
++ 	    <samp>assign1.tgz</samp>.</p>
++@@ -488,10 +483,6 @@
++ 
++ <p>should output a list of file names that contains <samp>myspell</samp>
++   etc., with sizes and other metainformation about the files.</p>
++ </section>
++ 
++ <footer>
++@@ -509,4 +500,3 @@
++ 
++ </body>
++ </html> -->

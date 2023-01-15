@@ -1,0 +1,109 @@
+--- exer1.html	2023-01-11 21:41:37.512908000 -0800
++++ exer3.html	2023-01-11 23:08:35.671614000 -0800
+@@ -1,17 +1,16 @@
+ <!DOCTYPE html>
+ <html lang='en'>
+ <head>
+-<title>Assignment 1. Files and shell scripting</title>
+-<meta charset='UTF-8'>
++<title>Assignment 27. Files and shell scripting</title>
++<meta charset='US-ASCII'>
+ <link rel='author' href='mailto:eggert@cs.ucla.edu'>
+ <link rel='license' href='copyright.html'>
+ </head>
+ 
+ <body>
+ 
+-<h1>Assignment 1. Files and shell scripting</h1>
++<h1>Assignment 27. Files and shell scripting</h1>
+ 
+-<p><small>[<a href='../index.html'>course home</a> &gt; <a href='../assign.html'>assignments</a>]</small></p>
+ 
+ <p>This assignment is designed to give you familiarity with two
+   things. The first is Emacs, the classic programmable text editor
+@@ -35,15 +34,15 @@
+ in via a separate session before logging out of your first session!).</p>
+ 
+ <p>As this course has no textbook, a main goal of this assignment is
+-  covering how you can discover details about this assignment’s topic,
++  covering how you can discover details about this assignment's topic,
+   details that may not be covered in lecture. Although you can get
+   some of the details by following all the links in this assignment
+-  and getting the gist of those web pages, this won’t
+-  suffice for everything and you’ll need to do some learning-by-doing
++  and getting the gist of those web pages, this won't
++  suffice for everything and you'll need to do some learning-by-doing
+   to do the assignment well. The idea is that you
+   can put this experience to good use later in this course (and in
+   real life!) when you need to come up to speed with a large software
+-  ecosystem. That being said, don’t let yourself get discouraged
++  ecosystem. That being said, don't let yourself get discouraged
+   if a detail cannot be found by reading the online documentation.
+ If you need a hint, ask a <abbr>TA</abbr> or an <abbr>LA</abbr>.
+ (This assignment is not intended to be done without any hints!)</p>
+@@ -173,7 +172,6 @@
+   line that contains a non-ASCII character other than U+2019.
+   You can find the next
+   non-ASCII character by searching for the regular
+-  expression "<samp>[^[:ascii:]]</samp>".
+ <li>Insert an empty line after the last line containing
+ "<samp>&lt;/ol&gt;</samp>".</li>
+ 
+@@ -268,7 +266,7 @@
+ 
+ <li>
+ Use the <samp>find</samp> command to find all directories modified
+-on or after the day of this class’s first lecture,
++on or after the day of this class's first lecture,
+ that are located under (or are the same as) the
+ directory <samp>/usr/local/cs</samp>.
+ </li>
+@@ -383,18 +381,19 @@
+   and put the program's standard error into <samp>hello-d2</samp>.</li>
+ 
+ </ol>
++
+ </section>
+ 
+ <section>
+ <h2>Homework: Scripting in the shell</h2>
+ 
+-<p>For the homework assume you’re in the standard C or <a
++<p>For the homework assume you're in the standard C or <a
+ href='http://en.wikipedia.org/wiki/POSIX'>POSIX</a> <a
+ href='http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html#tag_07'>locale</a>. The
+ shell command <a
+ href='http://pubs.opengroup.org/onlinepubs/9699919799/utilities/locale.html'><samp>locale</samp></a>
+ should output <samp>LC_CTYPE="C"</samp>
+-or <samp>LC_CTYPE="POSIX"</samp>. If it doesn’t, use the following
++or <samp>LC_CTYPE="POSIX"</samp>. If it doesn't, use the following
+ shell command:</p>
+ 
+ <pre><samp><a href='http://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#export'>export</a> LC_ALL='C'
+@@ -420,23 +419,17 @@
+ <p>Sort this file and put the sorted output into a file <samp>sorted.words</samp>.</p>
+ 
+ <p>Then, take a text file containing the HTML in this
+-assignment’s web page, and run the following commands with that
++assignment's web page, and run the following commands with that
+ text file being standard input. For each command <samp>tr</samp>,
+-<samp>sort</samp>, <samp>comm</samp>, read the command’s man page and
++<samp>sort</samp>, <samp>comm</samp>, read the command's man page and
+ use that to deduce what the command should do given its operands
+ here. Also, look generally at what each command outputs (in
+ particular, how its output differs from that of the previous command),
+ and why.</p>
+ 
+-<pre><samp>tr -c 'A-Za-z' '[\n*]'
+-tr -cs 'A-Za-z' '[\n*]'
+-tr -cs 'A-Za-z' '[\n*]' | sort
+-tr -cs 'A-Za-z' '[\n*]' | sort -u
+-tr -cs 'A-Za-z' '[\n*]' | sort -u | comm - sorted.words
+-tr -cs 'A-Za-z' '[\n*]' | sort -u | comm -23 - sorted.words
+ </samp></pre>
+ 
+-<p>Let’s take the last command
++<p>Let's take the last command
+ as the crude implementation of an
+   English spelling checker.
+   This implementation mishandles the input file <samp>sorted.words</samp>!
