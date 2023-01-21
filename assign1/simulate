@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # SETUP
 # set proper file encoding
