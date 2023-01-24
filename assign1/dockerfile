@@ -1,6 +1,6 @@
 FROM alpine
 
-WORKDIR /app
+WORKDIR /assignment
 
 COPY . .
 
