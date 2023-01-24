@@ -13,7 +13,7 @@ cp ./scratchwork/exer1.html ./scratchwork/exer2.html
 cp ./scratchwork/exer1.html ./scratchwork/exer3.html 
 
 executeRegister() {
-    /usr/bin/vim -N -u NONE -n -T dumb ./scratchwork/exer"$1".html -i ./vimscript/lab"$1".vim -c "silent! @u" -c "wq"
+    /usr/bin/vim -N -u NONE -n -T dumb ./scratchwork/exer"$1".html -i ./vimscript/lab"$1".vim -c "silent! @u" -c "wq" 2>&-
 }
 
 diffOrigin() {
