@@ -1,0 +1,15 @@
+FROM alpine
+LABEL maintainer="Clayton Castro hello@claytonc.dev"
+# add necessary binaries
+RUN apk add --nocache neovim
+
+WORKDIR /neovim
+
+RUN ./nvimSetup
+
+COPY . .
+
+
+# run homework simulation script
+CMD ["bash"]
+
