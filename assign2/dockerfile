@@ -1,15 +1,7 @@
-FROM alpine
-LABEL maintainer="Clayton Castro hello@claytonc.dev"
-# add necessary binaries
-RUN apk add --nocache neovim
+FROM anatolelucet/neovim:stable
 
-WORKDIR /neovim
+WORKDIR /mnt/volume
 
-RUN ./nvimSetup
+COPY ./gps-line.lua ./
 
-COPY . .
-
-
-# run homework simulation script
-CMD ["bash"]
-
+CMD ["/usr/local/bin/nvim", "./gps-line.lua", "-c source ./gps-line.lua"]

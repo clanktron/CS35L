@@ -2,6 +2,14 @@
 
 ## Exercise 2.2: Scripting Emacs
 
+`gps-line()` was implemented in lua and can be tested by running the following docker commands in this directory.
+```
+$ docker build -t gps-line .
+$ docker run -it -v $PWD:/mnt/volume gps-line
+```
+This will open vim and auto-source the gps-line.lua file. An easy keymap has been provided so simply hit the `space key` followed by the `i key` to trigger the 
+line output from the function. The function can also be directly called by typing `:lua gps-line()`.
+
 ## Homework: Python scripting
 
 Consider the old-fashioned Python 2 script randline.py.
