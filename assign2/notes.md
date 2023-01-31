@@ -1,5 +1,47 @@
 # Assignment 2. Lisp and Python scripting
 
+## Exercise 2.1: Navigating through Emacs source code
+
+1) The basic idea here is to get a mental model of how Emacs works by looking at a bit of its keybindings and source code. Start up a fresh Emacs with a *scratch* buffer.
+To warm up, compute (2607 − 1) × (2607 − 1) (i.e., 2**(607 - 1) * (2**607 - 1)) in the *scratch* buffer, by using the expt and other functions. This is the 14th perfect number, discovered in 1952.
+
+(* (expt 2 (- 607 1)) (- (expt 2 607) 1)) yields
+
+1410537837067120690632079580860631898814867435147156678388386759999548677426523801141041933290376902515619505687098
+2932716408772436637008711673126815931365248745065243980587729620729744672329516665822884692680778665287018892086787
+9451478364569313922060370695064736073572378695176473055266826253284886383715072974324463835300053138429460296575143
+368065570759537328128
+
+2) Use Emacs to determine how many bits it would take to represent this number in base-2 notation (not counting any sign bit), by writing a Lisp expression that yields the number of bits as an integer.
+Type M-: and use it to compute (2607 − 1) × (2607 − 1).
+
+The expression (+ (logb (* (expt 2 (- 607 1)) (- (expt 2 607) 1))) 1) yields 1213 as the number of bits.
+
+141053783706712069063207958086063189881486743514715667838838675999954867742652380114104193329037690251561950568709829327164087724366370087116731268159313652487450652439805877296207297446723295166658228846926\
+807786652870188920867879451478364569313922060370695064736073572378695176473055266826253284886383715072974324463835300053138429460296575143368065570759537328128 (#o17777777777777777777777777777777777777777777\
+777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777000000000000000000000000000000000000000000000000\
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, #x1ffffffffffffffffffffffffffffffffffffffffffffffff\
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\
+000000000000000000000000000000000000000000000000)
+
+3) Get a list of keybindings by typing C-h b. Look for two keybindings: C-h k and M-SPC. C-h k stands for “Type Control-h, then ‘k’.” M-SPC is “Meta Space”; 
+on good keyboards you can get this by holding down Alt while hitting the space bar, but you may need to type “Esc” and then follow by hitting the space bar. 
+We will examine these two keybindings in more detail. Type C-h k C-h k and describe what happens and why. (This should relate to the C-h b output mentioned previously.)
+
+C-h K key displays the section of the Emacs manual that describes the command corresponding to key. 
+Running C-h k for the command C-h k itself will display the description of C-h k in the pop up.
+
+4) Type C-h k M-SPC and describe what happens and why. (This should also relate.)
+
+M-SPC deletes all spaces and tabs around the point where our cursor is, leaving one space (or N spaces if specified). If N is negative, it deletes newlines as well, leaving -N spaces.
+It runs the command just-one-space. When we run C-h k for the command M-SPC, the description of M-SPC pops up in the help window.
+
+5) Try out M-SPC on some sample text with a lot of white space, to see how it works. Visit the source code for the function that implements M-SPC, by going to its help and clicking (or typing RET) on its source file name.
+Notice how M-SPC is implemented in terms of a more-general function, which does not have a keybinding. Use M-: to execute this more-general function on a buffer, such that the function changes the buffer’s contents.
+Similarly, use M-x to execute the more-general function on a buffer.
+
+The general function for M-SPC keybinding is `cycle-spacing`.
+
 ## Exercise 2.2: Scripting Emacs
 
 `gps-line()` was implemented in lua and can be tested by running the following docker commands in this directory.
@@ -8,7 +50,10 @@ $ docker build -t gps-line .
 $ docker run -it -v $PWD:/mnt/volume gps-line
 ```
 This will open vim and auto-source the gps-line.lua file. An easy keymap has been provided so simply hit the `space key` followed by the `i key` to trigger the 
-line output from the function. The function can also be directly called by typing `:lua gps-line()`.
+line output from the function. The function can also be directly called by typing `:lua gps-line()`. This will return the proper line number juxtaposed with the total number of lines in the buffer.
+
+>As vim does more robust parsing than emacs for what a "line" is, the newline count will always be greater than or equal to the current line (not desired functionality).
+As this could only be achieved in vim through writing lengthy custom code to open the file and parse individual characters I have also included the solution for emacs (exhibits asked of behavior).
 
 ## Homework: Python scripting
 
