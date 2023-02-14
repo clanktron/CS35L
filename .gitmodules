@@ -1,0 +1,3 @@
+[submodule "assign3/choruslapilli"]
+	path = assign3/choruslapilli
+	url = git@github.com:clanktron/choruslapilli
