@@ -1,0 +1,3 @@
+#!/bin/sh
+# just git diff again
+git diff "$1"..."$2"

@@ -1,0 +1,6 @@
+#!/bin/sh
+# literally just git diff
+git diff HEAD^
+# or git diff HEAD~
+# or git diff HEAD~...HEAD
+# or honestly even git show
