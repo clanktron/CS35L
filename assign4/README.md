@@ -10,23 +10,39 @@ You may also want to refer to the Git web site. Git is written by Linus Torvalds
 
 1. Use GitHub from a browser to compute the difference between the previous and current commit to this repository. Save the resulting web page as a file prevcur.html.
 
-```bash $ curl -o prevcur.html https://github.com/eggert/tz/compare/d0cbdfa...85dbb1a```
+```bash 
+$ curl -o prevcur.html https://github.com/eggert/tz/compare/d0cbdfa...85dbb1a
+```
 
 2. Use GitHub from a browser to compute the difference between tzdb releases 2022f and 2022g. Save the resulting web page as a file 2022f-2022g.html.
 
-```bash $ curl -o prevcur.html https://github.com/eggert/tz/compare/2022f...2022g```
+```bash 
+$ curl -o prevcur.html https://github.com/eggert/tz/compare/2022f...2022g
+```
 
 3. Clone the tzdb development repository, in Git format.
 
-```bash $ git clone https://github.com/eggert/tz```
+```bash 
+$ git clone https://github.com/eggert/tz
+```
 
 4. Write a shell or Python script justone that displays the difference from the previous and current commit, assuming the repository is what an ordinary Git command would use. Use your command on the just-cloned repository, and put the output of your command into a file justone.out.
 
+```bash
+$ ./justone > justone.out
+```
 
-    
 5. Write a shell or Python script compare-releases that displays the difference between two tzdb releases given as arguments to the command. For example, compare-releases 2022f 2022g should output the difference between tzdb release 2022f and tzdb release 2022g. Put the output of this particular invocation into a file 2022f-2022g.diff.
+
+```bash
+$ ./compare-releases > 2022f-2022g.diff
+```
     
 6. Suppose we’re interested in the number of commits from each time zone. Write a shell or Python script tzcount that postprocesses the output of git log and outputs a simple report of time zones and number of commits from that time zone. Each line of output should look something like “-0500 1802”, meaning there were 1802 commits from the −0500 time zone. Use the commit date, not the author date, to determine the time zone of the commit. Sort the output numerically by its first (numeric timezone) column. Run the command git log 2012j..2022g | ./tzcount using the tzdb repository, and put its output into a file tzdb-2012j-2022g.tzcount.
+
+```bash
+$  git log --format=fuller 2012j..2022g | ./tzcount > ../tzdb-2012j-2022g.tzcount
+```
     
 7. Suppose the maintainer of tzdb is being sued for copyright infringement because one of the source files contains the following sentence: “Even newspaper reports present contradictory information.” Also suppose the plaintiff claims that this statement was improperly copied from the plaintiff’s book. Use Git and other commands to find out how this statement was originally introduced to the tzdb files. (This is not the same thing as merely finding the last change to the lines containing the statement in question.) Create a text file who-contributed.txt that describes what commands and/or scripts that you used, and what the result of your investigation was.
 

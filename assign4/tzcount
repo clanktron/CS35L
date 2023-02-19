@@ -3,13 +3,12 @@
 
 # The first grep ensures the TZ string is actually from the commit date line
 # The second grep selects only the TZ strings from the valid lines 
-TZDATA=$(grep -E "CommitDate: .*(\+|\-)[0-9]{4}" | grep -oE "(\+|\-)[0-9]{4}")
+TZDATA=$(grep -E "CommitDate: .*(\+|-)[0-9]{4}" | grep -oE "(\+|-)[0-9]{4}")
 TIMEZONES=$(echo "$TZDATA" | sort -u)
 
 # on mac use gnu versions over builtin mac version
-if (uname -s | grep -q Darwin) then
-    echo "$TIMEZONES" | while read -r line; do
-    COMMITCOUNT=$(echo "$TZDATA" | grep -c -- "$line")
-    echo "$line" "$COMMITCOUNT"
+echo "$TIMEZONES" | while read -r line; do
+COMMITCOUNT=$(echo "$TZDATA" | grep -c -- "$line")
+echo "$line" "$COMMITCOUNT"
 done
-fi    
+
